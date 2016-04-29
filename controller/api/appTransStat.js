@@ -10,7 +10,7 @@ var appWebUrlsTrans = require('../../model/appWebUrlsTrans');
 exports.statistics = function(req, res, next){
 
     var now = new Date();
-    var app = '5723296eb1f738b90649ee63';
+    var app = '572330c8209211910794a374';
 
     appWebUrlsTrans.statisticsOneDayWebTransaction(app, now, function (err, rows) {
         if(err){

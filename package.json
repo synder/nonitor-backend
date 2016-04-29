@@ -12,6 +12,7 @@
     "redis": "*",
     "async": "*",
     "xpress": "*",
+    "express": "*",
     "mongoose":"*",
     "body-parser": "*",
     "compression": "*",
