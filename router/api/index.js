@@ -8,7 +8,7 @@ var apiRouter = new Router();
 //----------------------------------------------------------------
 var userAccount = require('../../controller/api/userAccount');
 
-
+apiRouter.get('/user/logout', userAccount.logout);
 apiRouter.post('/user/login', userAccount.login);
 apiRouter.post('/user/register', userAccount.register);
 

@@ -15,7 +15,6 @@ userRouter.get('/', userApplication.page);
 userRouter.get('/user/register', userAccount.register);
 userRouter.get('/user/password', userAccount.password);
 userRouter.get('/user/login', userAccount.login);
-userRouter.get('/user/logout', userAccount.logout);
 
 
 module.exports = userRouter;

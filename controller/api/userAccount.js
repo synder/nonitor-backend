@@ -94,6 +94,14 @@ exports.login = function (req, res, next) {
     });
 };
 
+exports.logout = function (req, res, next) {
+    var key = req.cookies.session;
+    userSession.removeSession(key, function () {
+        res.clearCookie('session', { path: '/' });
+        res.redirect('/user/login');
+    });
+};
+
 
 exports.password = function (req, res, next) {
 
