@@ -1,0 +1,81 @@
+<!--top logo-->
+<div class="logo">
+    <h4><a href="/"><strong>Node.js</strong> Nonitor</a></h4>
+</div>
+
+<!--main sidebar menu-->
+<nav id="sidebar" class="sidebar nav-collapse collapse">
+    <ul id="side-nav" class="side-nav">
+        <li class="active">
+            <a href="/"><i class="fa fa-cloud"></i> <span class="name">Applications</span></a>
+        </li>
+
+        <li class="panel ">
+            <a href="/app/dashboard">
+                <i class="fa fa-dashboard"></i>
+                <span class="name">Dashboard</span>
+            </a>
+        </li>
+
+        <li class="panel ">
+            <a href="/app/events">
+                <i class="fa fa-magic"></i>
+                <span class="name">Events</span>
+            </a>
+        </li>
+
+        <li class="panel ">
+            <a href="/app/statistics">
+                <i class="fa fa-database"></i>
+                <span class="name">Statistics</span>
+            </a>
+        </li>
+
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#tables-collapse">
+                <i class="fa fa-cog"></i>
+                <span class="name">Setting</span>
+            </a>
+            <ul id="tables-collapse" class="panel-collapse collapse ">
+                <li class=""><a href="/setting/agent">Agent</a></li>
+                <li class=""><a href="/setting/warning">Warning</a></li>
+            </ul>
+        </li>
+
+        <li class="panel ">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#grid-collapse">
+                <i class="fa fa-user"></i>
+                <span class="name">Account</span>
+            </a>
+            <ul id="grid-collapse" class="panel-collapse collapse ">
+                <li class=""><a href="/account/user">User</a></li>
+                <li class=""><a href="/account/agent">Agent</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <!--Introductions-->
+    <h5 class="sidebar-nav-title">Colors</h5>
+    <ul class="sidebar-labels">
+
+        <li>
+            <a href="#">
+                <i class="fa fa-circle text-danger"></i>
+                <span class="label-name">Error / Major</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <!-- yep, .circle again -->
+                <i class="fa fa-circle text-warning"></i>
+                <span class="label-name">Warn / Minor</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-circle text-success"></i>
+                <span class="label-name">Normal</span>
+            </a>
+        </li>
+    </ul>
+</nav>
