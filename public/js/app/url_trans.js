@@ -5,8 +5,13 @@
 
 var summaryController = application.controller('UrlStatisticController', function($scope, $http, $interval) {
 
-    $scope.method = 'GET';
-    $scope.url = '/';
+    $scope.app = null;
+
+    $scope.method = null;
+    $scope.url = null;
+});
+
+summaryController.controller('UrlChartController', function($scope, $http, $interval) {
 
     $scope.maxResTime = 0;
     $scope.avgResTime = 0;
@@ -126,11 +131,14 @@ var summaryController = application.controller('UrlStatisticController', functio
 
     $scope.load = function () {
 
-        $http.get('/api/app/web/url/trans').success(function(response) {
+        var url = '/api/app/web/url/trans?app=' + $scope.app
+            + '&url=' + encodeURIComponent($scope.url)
+            + '&method=' + $scope.method;
+
+        $http.get(url).success(function(response) {
             $scope.transactions = response.data;
             $scope.draw();
         });
-
     };
 
     $scope.load();

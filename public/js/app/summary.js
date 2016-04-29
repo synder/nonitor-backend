@@ -19,6 +19,10 @@ summaryController.controller('WebTransactionSummaryController', function ($scope
 
     $scope.draw = function () {
 
+        $scope.total = 0;
+        $scope.timeout = 0;
+        $scope.error = 0;
+
         var data = [
             {
                 area: false,

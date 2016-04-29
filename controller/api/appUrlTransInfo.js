@@ -8,9 +8,9 @@ var appWebUrlTrans = require('../../model/appWebUrlTrans');
 
 exports.statistics = function (req, res, next) {
 
-    var app = '5723296eb1f738b90649ee63';
-    var url = '/';
-    var method = 'GET';
+    var app = req.query.app;
+    var url = req.query.url;
+    var method = req.query.method;
 
     appWebUrlTrans.getUrlTransactions(app, url, method, function (err, trans) {
         if(err){

@@ -20,9 +20,10 @@
 
         <div class="row">
             <!--center content-->
-            <div class="col-lg-12">
+            <div class="col-lg-12" ng-init="app='<%= appId %>';url='<%= url %>';method='<%= method %>'">
+
                 <!--Url -->
-                <section class="widget" ng-controller="UrlStatisticController">
+                <section class="widget" ng-controller="UrlChartController">
 
                     <header>
                         <h4>
@@ -98,7 +99,7 @@
 <script src="/lib/nvd3/d3.min.js"></script>
 <script src="/lib/nvd3/nv.d3.min.js"></script>
 <!-- page application js -->
-<script src="/js/app/url.js"></script>
+<script src="/js/app/url_trans.js"></script>
 
 </body>
 </html>

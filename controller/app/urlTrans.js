@@ -6,5 +6,13 @@
 /**
  * */
 exports.page = function (req, res, next) {
-    res.render('app/url_trans');
+    var app = req.query.app;
+    var url = req.query.url || '/';
+    var method = req.query.method || 'GET';
+
+    res.render('app/url_trans', {
+        appId: app,
+        url : url,
+        method : method
+    });
 };
