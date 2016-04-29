@@ -7,5 +7,10 @@
  * app summary
  * */
 exports.page = function (req, res, next) {
-    res.render('app/summary');
+
+    var app = req.query.app;
+
+    res.render('app/summary', {
+        appId : app
+    });
 };

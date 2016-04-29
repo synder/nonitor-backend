@@ -6,7 +6,15 @@
 var appTransException = require('../../model/appTransException');
 
 exports.error = function (req, res, next) {
-    var app = '5723296eb1f738b90649ee63';
+    var app = req.query.app;
+
+    if(!app){
+        return res.json({
+            code : 0,
+            msg : null,
+            data : []
+        });
+    }
 
     appTransException.getErrorTransactionInfo(app, function (err, warns) {
         if(err){
@@ -24,7 +32,15 @@ exports.error = function (req, res, next) {
 
 
 exports.timeout = function (req, res, next) {
-    var app = '5723296eb1f738b90649ee63';
+    var app = req.query.app;
+
+    if(!app){
+        return res.json({
+            code : 0,
+            msg : null,
+            data : []
+        });
+    }
 
     appTransException.getTimeoutTransactionInfo(app, function (err, warns) {
         if(err){
@@ -41,7 +57,15 @@ exports.timeout = function (req, res, next) {
 };
 
 exports.warn = function (req, res, next) {
-    var app = '5723296eb1f738b90649ee63';
+    var app = req.query.app;
+
+    if(!app){
+        return res.json({
+            code : 0,
+            msg : null,
+            data : []
+        });
+    }
 
     appTransException.getWarnTransactionInfo(app, function (err, warns) {
         if(err){

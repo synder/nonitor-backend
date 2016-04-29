@@ -5,78 +5,25 @@
     <%- include ../portion/css.html %>
     <title>Nonitor</title>
 </head>
-<body>
-
-
+<body ng-app="application">
 <div>
     <!--header -->
     <%- include ../portion/header.html %>
     <!--main content-->
 
     <!--content-->
-    <div class="content container" style="margin-top: 50px;">
+    <div class="content container" style="margin-top: 50px;" ng-controller="UserApplicationsController">
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-6" ng-repeat="app in applications">
                 <div class="box">
-                    <a href="/app/summary?app=key">
+                    <a href="/app/summary?app={{app._id}}">
                         <p class="icon">
                             <i class="fa fa-calendar"></i>
                         </p>
                         <p class="description">
-                            <strong>14</strong> meetings
+                            <strong>{{app.name}}</strong> meetings
                         </p>
                     </a>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <div class="description">
-                        <strong>14</strong> meetings
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <div class="description">
-                        <strong>14</strong> meetings
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <div class="description">
-                        <strong>14</strong> meetings
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <div class="description">
-                        <strong>14</strong> meetings
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <div class="description">
-                        <strong>14</strong> meetings
-                    </div>
                 </div>
             </div>
         </div>
@@ -85,6 +32,8 @@
 </div>
 
 <%- include ../portion/js.html %>
+
+<script src="/js/user/application.js"></script>
 
 </body>
 </html>

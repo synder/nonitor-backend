@@ -1,6 +1,7 @@
 
 var summaryController = application.controller('SummaryController', function($scope, $http) {
 
+    $scope.app = null;
     $scope.appName = 'application name';
 
 });
@@ -13,6 +14,8 @@ summaryController.controller('WebTransactionSummaryController', function ($scope
     $scope.availability = 0;
 
     $scope.transactions = [];
+
+    $scope.url = '/api/app/web/urls/trans?app=' + $scope.app;
 
     $scope.draw = function () {
 
@@ -79,16 +82,18 @@ summaryController.controller('WebTransactionSummaryController', function ($scope
         diagram.line('#webTransactionChart', data);
     };
 
-    $http.get('/api/app/web/urls/trans').success(function(response) {
-        $scope.transactions = response.data;
-        $scope.draw();
-    });
 
-    $interval(function () {
-        $http.get('/api/app/web/urls/trans').success(function(response) {
+    $scope.load = function () {
+        $http.get($scope.url).success(function(response) {
             $scope.transactions = response.data;
             $scope.draw();
         });
+    };
+
+    $scope.load();
+
+    $interval(function () {
+        $scope.load();
     }, 30000);
 });
 
@@ -114,35 +119,37 @@ summaryController.controller('TransactionExceptionController', function ($scope,
     $scope.warns = [];
 
     $scope.error = function () {
-        $http.get('/api/app/web/trans/exception/error').success(function(body) {
+        var url = '/api/app/web/trans/exception/error?app=' + $scope.app;
+        $http.get(url).success(function(body) {
             $scope.errors = body.data;
         });
     };
 
     $scope.timeout = function () {
-        $http.get('/api/app/web/trans/exception/timeout').success(function(body) {
+        var url = '/api/app/web/trans/exception/timeout?app=' + $scope.app;
+        $http.get(url).success(function(body) {
             $scope.timeouts = body.data;
         });
     };
 
     $scope.warn = function () {
-        $http.get('/api/app/web/trans/exception/warn').success(function(body) {
+        var url = '/api/app/web/trans/exception/warn?app=' + $scope.app;
+        $http.get(url).success(function(body) {
             $scope.warns  = body.data;
         });
     };
 
-    $http.get('/api/app/web/trans/exception/error').success(function(body) {
-        $scope.errors = body.data;
-    });
+    $scope.error();
 
 });
 
 
 summaryController.controller('NodesInfoController', function ($scope, $http) {
+
     $scope.nodes = [];
 
-    $http.get('/api/app/nodes/system/info').success(function(body) {
-        console.log(body.data);
+    var url = '/api/app/nodes/system/info?app=' + $scope.app;
+    $http.get(url).success(function(body) {
         $scope.nodes = body.data;
     });
 });
@@ -154,32 +161,34 @@ summaryController.controller('ApplicationEventsController', function ($scope, $h
     $scope.startEvents = [];
 
     $scope.crash = function () {
-        $http.get('/api/app/nodes/event/crash').success(function(body) {
+        var url = '/api/app/nodes/event/crash?app=' + $scope.app;
+        $http.get(url).success(function(body) {
             $scope.crashEvents = body.data;
         });
     };
 
     $scope.error = function () {
-        $http.get('/api/app/nodes/event/error').success(function(body) {
+        var url = '/api/app/nodes/event/error?app=' + $scope.app;
+        $http.get(url).success(function(body) {
             $scope.errorEvents = body.data;
         });
     };
 
     $scope.stop = function () {
-        $http.get('/api/app/nodes/event/stop').success(function(body) {
+        var url = '/api/app/nodes/event/stop?app=' + $scope.app;
+        $http.get(url).success(function(body) {
             $scope.stopEvents = body.data;
         });
     };
 
     $scope.start = function () {
-        $http.get('/api/app/nodes/event/start').success(function(body) {
+        var url = '/api/app/nodes/event/start?app=' + $scope.app;
+        $http.get(url).success(function(body) {
             $scope.startEvents = body.data;
         });
     };
 
-    $http.get('/api/app/nodes/event/crash').success(function(body) {
-        $scope.crashEvents = body.data;
-    });
+    $scope.crash();
 
 });
 
