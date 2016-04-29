@@ -4,10 +4,10 @@
 var Router = require('xpress').Router;
 var appRouter = new Router();
 
-var app = require('../../controller/app/index');
+var summary = require('../../controller/app/summary');
+var urlTrans = require('../../controller/app/urlTrans');
 
-appRouter.get('/summary', app.summary);
-appRouter.get('/url', app.url);
-
+appRouter.get('/app/summary', summary.page);
+appRouter.get('/app/url/trans', urlTrans.page);
 
 module.exports = appRouter;

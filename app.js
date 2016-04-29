@@ -49,18 +49,25 @@ server.use(body.json());
 server.use(body.urlencoded({extended: true}));
 server.use(statics(config.public.server.statics.path));
 
-
 //---------------------------------------------------------
 
-var appRouter = require('./router/app');
-var homeRouter = require('./router/home');
-var accountRouter = require('./router/account');
-var statisticsRouter = require('./router/statistics');
+var session = require('./controller/middle/session');
 
-server.sub('/', homeRouter);
-server.sub('/app', appRouter);
-server.sub('/statistics', statisticsRouter);
-server.sub('/account', accountRouter);
+server.use(session.load());
+server.use(session.check());
+
+//---------------------------------------------------------
+var apiRouter = require('./router/api');
+
+server.sub('/api', apiRouter);
+
+var appRouter = require('./router/app');
+var userRouter = require('./router/user');
+var settingRouter = require('./router/setting');
+
+server.sub(appRouter);
+server.sub(userRouter);
+server.sub(settingRouter);
 
 //---------------------------------------------------------
 

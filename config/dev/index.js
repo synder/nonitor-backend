@@ -25,7 +25,7 @@ module.exports =  {
      * */
     server: {
         port: {
-            http: 8001,
+            http: 8002,
             https: null
         },
         host: null,
@@ -93,19 +93,15 @@ module.exports =  {
             pool: 5,
             password : null,
             user: null
-        }
-    },
+        },
+        redis : {
+            host : '127.0.0.1',
+            port : 6379,
+            db : 0,
+            auth:{
+                password: null
+            }
 
-    /**
-     * api请求配置
-     * */
-    services : {
-        api :{
-            protocol: 'http',
-            host : 'localhost',
-            port : 9200,
-            appKey: '4c1b1179aa8111473c585a508c75f035',
-            appSecret: '68fef1e98059404ee941f54147a59327'
         }
     }
 };

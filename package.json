@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "ejs": "*",
+    "redis": "*",
+    "async": "*",
     "xpress": "*",
     "mongoose":"*",
     "body-parser": "*",

@@ -16,7 +16,7 @@ var AppAgentAccountSchema = new Schema({
     name       : {type: String,   required: true},  //app name
     key        : {type: String,   required: true},  //app key
     secret     : {type: String,   required: true},  //app secret
-    status     : {type: Number,   required:true},   //status true or false
+    status     : {type: Number,   required: true},  //status true or false
     ctime      : {type: Date,     required: true},  //create time,
     mtime      : {type: Date,     required: true}   //modify time,
 });

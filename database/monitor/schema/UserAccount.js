@@ -13,7 +13,7 @@ var UserAccountSchema = new Schema({
     username   : {type: String, required: true}, //username for login
     password   : {type: String, required: true}, //password for login
     nickname   : {type: String, required: true}, //nickname for show
-    gender     : {type: String, required: true}, //user gender
+    gender     : {type: Number, required: true}, //user gender
     status     : {type: Number, required: true}, //account status which control login
     ctime      : {type: Date,   required: true}, //account create time
     mtime      : {type: Date,   required: true}  //account modify time
@@ -26,6 +26,12 @@ UserAccountSchema.index({username : 1}, {unique:true});
 UserAccountSchema.statics.STATUS = {
     LOCKED : 0, //account has ben locked
     NORMAL : 1  //account is normal
+};
+
+UserAccountSchema.statics.GENDER = {
+    UNKNOWN : -1,
+    FEMALE :0,
+    MALE : 1 
 };
 
 
